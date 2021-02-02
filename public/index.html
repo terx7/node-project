@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <title>Node project</title>
+</head>
+
+<body>
+    <main class="chat">
+        <section>
+            <div id="user-list" class="contacts">
+            </div>
+        </section>
+        <section> 
+            <div class="chat-header">
+                <p>Siia tuleb kasutajanimi</p>
+                <button id="logout">Log out</button>
+            </div>
+            <div id="chat-messages" class="chat-body">
+            
+            </div>
+            <div class="chat-footer">
+                <label>
+                    <input  id="message-input" type="text" value="" placeholder="Aa" />
+                </label>
+            </div>
+        </section>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/public/js/app.js"></script>
+</body>
+</html>
