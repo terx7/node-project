@@ -29,7 +29,7 @@ npm -v
 ```
 5. Install nodemon globally
 ```
-npm install -g nodemon
+sudo npm install -g nodemon
 ```
 6. Install Redis
 ```
