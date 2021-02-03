@@ -1,8 +1,9 @@
-**Projekt**
+#Projekt
+
 Kuressaare Ametikooli tarkvaraarenduse õpilaste projektipäevade raames 3.-5.veebruar 2021.a valminud töö. 
 Ülesande kirjeldus: etteantud Node.js ja Socket.io koodi peale luua edasiarendatud klient-server rakendus. 
 
-**Tiim: IO2**
+##Tiim: IO2
 
 **Tiimi liikmed:**
 - Andrus Pajuniit
@@ -20,6 +21,7 @@ Rakendus:
 - Kas oleksid tahtnud täita mingit muud ülesannet selles meeskonnas
 - Üks pehme oskus, mida õppisin ja endas arendasin
 - Üks tehniline oskus, mida õppisin ja endas arendasin
+
 Andrus: 
 1.
 2.
