@@ -13,7 +13,6 @@ var bodyParser = require('body-parser');
 const path = require('path');
 
 const port = 8000;
-
 const userList = {};
 
 // config
@@ -38,6 +37,8 @@ redisClient.on('connect', function(err) {
     console.log('Connected to redis successfully');
 });
 
+
+// Define middleware for Redis and use it with Express and Socket.io
 const sessionMiddleware = session({
     store: new RedisStore({ client: redisClient }),
     secret: 'secret$%^134',
@@ -56,9 +57,10 @@ io.use((socket, next) => {
     sessionMiddleware(socket.request, {}, next);
 });
 
+
+// Router // Here are all GET, POST, PUT, DELETE routes defined for the app
 app.get("/", (req, res) => {
     sess = req.session;
-    console.log('sess id:', req.session.id, sess.username, sess.password);
 
     if (sess.username && sess.password) {
         sess = req.session;
@@ -71,7 +73,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-    console.log(req.body);
     redisClient.hgetall('users', (err, result) => {
 
         let isSuccess = false;
@@ -87,9 +88,9 @@ app.post("/login", (req, res) => {
             sess.username = req.body.username;
             sess.password = req.body.password;
             console.log('login', req.body.username, req.body.password, sess.username, sess.password);
-            res.json({response: 'success'});
+            res.json({ response: 'success' });
         } else {
-            res.json({response: 'errorWrongCredentials'});
+            res.json({ response: 'errorWrongCredentials' });
         }
     });
 });
@@ -110,9 +111,9 @@ app.post("/register", (req, res) => {
         }
         if (isSuccess) {
             redisClient.hset('users', req.body.username, req.body.password);
-            res.json({response: 'success'});
+            res.json({ response: 'success' });
         } else {
-            res.json({response: 'errorUserExists'});
+            res.json({ response: 'errorUserExists' });
 
         }
     });
@@ -127,16 +128,21 @@ app.get("/logout", (req, res) => {
     });
 });
 
+
+// Listen socket.io connections from client side
 io.on('connection', (socket) => {
-    // on connection
     const sess = socket.request.session
+
+    // On connection update user list
     userList[sess.username] = socket.id;
     io.emit('updateUserList', userList);
 
+    // On chat message from user emit to all users who are connected
     socket.on('chat_message', msg => {
         io.emit('chat_message', { 'message': msg, 'socketId': socket.id, 'user': sess.username });
     });
 
+    // On disconnect update user list
     socket.on('disconnect', () => {
         console.log('user ' + socket.id + ' disconnected');
         delete userList[sess.username];
@@ -144,6 +150,8 @@ io.on('connection', (socket) => {
     });
 });
 
+
+// Run node.js server
 http.listen(port, () => {
     console.log('listening on *:' + port);
 });
