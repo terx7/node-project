@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 .main {
     width: 100vw;
     height: 100vh;
@@ -16,9 +17,12 @@
     padding: 1rem;
 }
 
-.message {
-    display: flex;
+
+html {
+    background-color:  #F7F6F1;
+    color: #324E8C;
 }
+
 
 .chat-container {
     width: 70%;
@@ -34,6 +38,44 @@
     min-height: 20vh;
     border: 1px solid black;
     padding: 0.5rem;
+}
+
+.input-box {
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 40px;
+}
+
+.read-chat-box {
+    border-radius: 0px 20px 20px 20px;
+    border: 2px solid;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 40px;
+}
+
+.read-own-chat-box {
+    border-radius: 20px 20px 0px 20px;
+    border: 2px solid;
+    background-color: #324E8C;
+    color: #F7F6F1;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 40px;
+}
+
+.write-chat-box {
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 10px;
+    margin: 10px;
+    width: 500px;
+    height: 40px;
 }
 
 /* NO NEED THIS CSS - just for custom scrollbar which can also be configured in tailwind.config.js*/

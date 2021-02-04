@@ -1,3 +1,56 @@
+# Projekt
+
+Kuressaare Ametikooli tarkvaraarenduse õpilaste projektipäevade raames 3.-5.veebruar 2021.a valminud töö. 
+Ülesande kirjeldus: etteantud Node.js ja Socket.io koodi peale luua edasiarendatud klient-server rakendus. 
+
+## Tiim: IO2
+
+**Tiimi liikmed:**
+- Andrus Pajuniit
+- Erki Leemet
+- Gen Vikat
+- Karl Jäme
+- Mare Sepaste
+- Lelet Hollo
+
+**Lingid:**
+
+Figma: </br>
+Rakendus: </br>
+
+**Tiimiliikmete eneseanalüüs:**
+- Kas oleksid tahtnud täita mingit muud ülesannet selles meeskonnas
+- Üks pehme oskus, mida õppisin ja endas arendasin
+- Üks tehniline oskus, mida õppisin ja endas arendasin
+
+**Andrus:**
+1.
+2.
+3.
+**Erki:**
+1.
+2.
+3.
+**Gen:**
+1.
+2.
+3.
+**Karl:**
+1.
+2.
+3.
+**Mare:**
+1.
+2.
+3.
+
+**Lelet:**
+1. Ei. 
+2. Hirmude ületamine.
+3. Github, VS Code, CSS.
+
+--------------------------------
+
 **Stack**
 - Node JS / JS / npm
 - Express (Node JS framework)
