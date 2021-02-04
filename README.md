@@ -43,6 +43,7 @@ Rakendus: </br>
 1.
 2.
 3.
+
 **Lelet:**
 1. Ei. 
 2. Hirmude ületamine.
