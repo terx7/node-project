@@ -1,12 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+}
+
+.socket-listing {
+    width: 30%;
+    height: 100vh;
+    background-color: lightgoldenrodyellow;
+    padding: 1rem;
+}
+
+.message {
+    display: flex;
+}
+
+.chat-container {
+    width: 70%;
+    height: 100vh;
+}
 
 .chat {
     display: flex;
     flex-direction: row;
-}
-
-.chat > section {
-    flex: 1;
-    padding: 1vmin;
 }
 
 .chat-body {

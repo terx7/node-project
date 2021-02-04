@@ -14,6 +14,7 @@ const path = require('path');
 
 const port = 8000;
 const userList = {};
+const roomList = {};
 
 // config
 app.use('/public', express.static('./public/'));
@@ -137,8 +138,16 @@ io.on('connection', (socket) => {
     userList[sess.username] = socket.id;
     io.emit('updateUserList', userList);
 
+    //On connection, connect to global public chat.
+    socket.on('createRoom', room => {
+        socket.join(room);
+        roomList['roomName'] = room;
+        io.emit('updateRoomList', roomList);
+        console.log(sess.username + ' joined ' + roomList['roomName']);
+    });
+
     // On chat message from user emit to all users who are connected
-    socket.on('chat_message', msg => {
+    socket.on('chat_message', (msg, room) => {
         io.emit('chat_message', { 'message': msg, 'socketId': socket.id, 'user': sess.username });
     });
 

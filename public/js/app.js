@@ -2,7 +2,8 @@ var socket = io();
 
 const messageInput = document.getElementById('message-input');
 const chatMessages = document.getElementById('chat-messages');
-const userList = document.getElementById('user-list');
+const userList = document.querySelector('.user-list');
+const roomList = document.querySelector('.room-list');
 
 messageInput.focus();
 
@@ -13,12 +14,14 @@ messageInput.addEventListener('keydown', event => {
     }
 });
 
-socket.on('connection', userId => {
-    const item = document.createElement('li');
-    item.textContent = 'User ' + userId + ' connected';
-    chatMessages.appendChild(item);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-});
+
+
+// socket.on('connection', userId => {
+//     const item = document.createElement('li');
+//     item.textContent = 'User ' + userId + ' connected';
+//     chatMessages.appendChild(item);
+//     chatMessages.scrollTop = chatMessages.scrollHeight;
+// });
 
 socket.on('updateUserList', userListObj => {
     userList.innerHTML = "";
@@ -30,12 +33,23 @@ socket.on('updateUserList', userListObj => {
     }
 });
 
+socket.emit('createRoom', 'public');
+
+socket.on('updateRoomList', roomListObj => {
+    roomList.innerHTML = "";
+    for(const roomName in Object.keys(roomListObj)) {
+        roomList.innerHTML = `
+            <div>
+                <p>${ roomListObj['roomName'] }</p>
+            </div>`;
+    }
+});
+
 socket.on('chat_message', msgObj => {
-    console.log(msgObj)
     const item = document.createElement('div');
     item.innerHTML = `
-        <div>
-            <p><b>${ msgObj.user }</b></p>
+        <div class="message">
+            <p><b>${ msgObj.user } : </b></p>
             <p>${ msgObj.message }</p>
         </div>
     `
