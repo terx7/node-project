@@ -14,8 +14,8 @@ const path = require('path');
 
 const port = 8000;
 const userList = {};
-let roomList = '';
-const currentRoom = ''
+let currentRoom = '';
+
 
 // config
 app.use('/public', express.static('./public/'));
@@ -143,21 +143,21 @@ io.on('connection', (socket) => {
     socket.on('createRoom', room => {
         if (room in userList) {
             socket.join(userList[room]);
-            roomList = room;
-            io.to(socket.id).emit('updateRoomList', roomList);
-            console.log(sess.username + ' joined ' + roomList);
+            currentRoom = room;
+            io.to(socket.id).emit('updateRoomList', currentRoom);
+            console.log(sess.username + ' joined ' + currentRoom);
         } else {
-            roomList = 'public';
-            io.to(socket.id).emit('updateRoomList', roomList);
-            console.log(sess.username + ' joined ' + roomList);
+            currentRoom = 'public';
+            io.to(socket.id).emit('updateRoomList', currentRoom);
+            console.log(sess.username + ' joined ' + currentRoom);
         }
     });
 
     // On chat message from user emit to all users who are connected
     socket.on('chat_message', msg => {
-        console.log(userList[roomList])
-        if (roomList in userList) {
-            io.to(userList[roomList]).emit('chat_message', { 'message': msg, 'socketId': socket.id, 'user': sess.username });
+        console.log(userList[currentRoom])
+        if (currentRoom in userList) {
+            io.to(userList[currentRoom]).emit('chat_message', { 'message': msg, 'socketId': socket.id, 'user': sess.username });
         } else {
             io.emit('chat_message', { 'message': msg, 'socketId': socket.id, 'user': sess.username });
         }
