@@ -1,17 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.main {
+    width: 100vw;
+    height: 100vh;
+}
+
+.socket-listing {
+    width: 30%;
+    height: 100vh;
+    background-color: lightgoldenrodyellow;
+    padding: 1rem;
+}
+
 
 html {
     background-color:  #F7F6F1;
     color: #324E8C;
 }
-.chat {
-    
-    display: flex;
-    flex-direction: row;
+
+
+.chat-container {
+    width: 70%;
+    height: 100vh;
 }
 
-.chat > section {
-    flex: 1;
-    padding: 1vmin;
+.chat {
+    display: flex;
+    flex-direction: row;
 }
 
 .chat-body {
