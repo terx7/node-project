@@ -14,6 +14,8 @@ const path = require('path');
 
 const port = 8000;
 const userList = {};
+let currentRoom = '';
+
 
 // config
 app.use('/public', express.static('./public/'));
@@ -30,10 +32,10 @@ const redisClient = redis.createClient({
     port: 6379
 })
 
-redisClient.on('error', function(err) {
+redisClient.on('error', function (err) {
     console.log('Could not establish a connection with redis. ' + err);
 });
-redisClient.on('connect', function(err) {
+redisClient.on('connect', function (err) {
     console.log('Connected to redis successfully');
 });
 
@@ -46,7 +48,7 @@ const sessionMiddleware = session({
     saveUninitialized: false,
     cookie: {
         secure: false, // if true only transmit cookie over https
-        httpOnly: false, // if true prevent client side JS from reading the cookie 
+        httpOnly: false, // if true prevent client side JS from reading the cookie
         maxAge: 1000 * 60 * 60 * 24 // session max age in miliseconds
     }
 });
@@ -137,9 +139,28 @@ io.on('connection', (socket) => {
     userList[sess.username] = socket.id;
     io.emit('updateUserList', userList);
 
+    //On connection, connect to global public chat.
+    socket.on('createRoom', room => {
+        if (room in userList) {
+            socket.join(userList[room]);
+            currentRoom = room;
+            io.to(socket.id).emit('updateRoomList', currentRoom);
+            console.log(sess.username + ' joined ' + currentRoom);
+        } else {
+            currentRoom = 'public';
+            io.to(socket.id).emit('updateRoomList', currentRoom);
+            console.log(sess.username + ' joined ' + currentRoom);
+        }
+    });
+
     // On chat message from user emit to all users who are connected
     socket.on('chat_message', msg => {
-        io.emit('chat_message', { 'message': msg, 'socketId': socket.id, 'user': sess.username });
+        console.log(userList[currentRoom])
+        if (currentRoom in userList) {
+            io.to(userList[currentRoom]).emit('chat_message', { 'message': msg, 'socketId': socket.id, 'user': sess.username });
+        } else {
+            io.emit('chat_message', { 'message': msg, 'socketId': socket.id, 'user': sess.username });
+        }
     });
 
     // On disconnect update user list
