@@ -1,5 +1,7 @@
 var socket = io();
 
+socket.emit('createRoom');
+
 const messageInput = document.getElementById('message-input');
 const chatMessages = document.getElementById('chat-messages');
 const userList = document.querySelector('.user-list');
@@ -14,7 +16,11 @@ messageInput.addEventListener('keydown', event => {
     }
 });
 
-
+userList.addEventListener('click', event => {
+    console.log(event.target.innerText)
+    const user = event.target.innerText
+    socket.emit('createRoom', user);
+})
 
 // socket.on('connection', userId => {
 //     const item = document.createElement('li');
@@ -28,35 +34,33 @@ socket.on('updateUserList', userListObj => {
     for (const userName in userListObj) {
         userList.innerHTML += `
         <div>
-            <p>${ userName }</p>
+            <p>${userName}</p>
         </div>`;
     }
 });
 
-socket.emit('createRoom', 'public');
+
 
 socket.on('updateRoomList', roomListObj => {
     roomList.innerHTML = "";
-    for(const roomName in Object.keys(roomListObj)) {
-        roomList.innerHTML = `
+    roomList.innerHTML = `
             <div>
-                <p>${ roomListObj['roomName'] }</p>
+                <p>${roomListObj}</p>
             </div>`;
-    }
 });
 
 socket.on('chat_message', msgObj => {
     const item = document.createElement('div');
     item.innerHTML = `
         <div class="message">
-            <p><b>${ msgObj.user } : </b></p>
-            <p>${ msgObj.message }</p>
+            <p><b>${msgObj.user} : </b></p>
+            <p>${msgObj.message}</p>
         </div>
     `
     chatMessages.appendChild(item);
 });
 
-document.getElementById('logout').onclick = function() {
+document.getElementById('logout').onclick = function () {
     console.log('logout');
     location.href = '/logout';
 };
