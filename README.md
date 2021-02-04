@@ -44,9 +44,9 @@ Rakendus: </br>
 2.
 3.
 **Lelet:**
-1.
-2.
-3.
+1. Ei. 
+2. Hirmude ületamine.
+3. Github, VS Code
 
 
 **Stack**
