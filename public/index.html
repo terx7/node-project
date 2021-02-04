@@ -5,31 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,500&display=swap"
+        rel="stylesheet">
     <title>Node project</title>
 </head>
 
 <body>
     <main class="chat">
-        <section>
-            <div id="user-list" class="contacts">
-            </div>
-        </section>
-        <section> 
-            <div class="chat-header">
-                <p>Siia tuleb kasutajanimi</p>
-                <button id="logout">Log out</button>
-            </div>
-            <div id="chat-messages" class="chat-body">
-            
-            </div>
-            <div class="chat-footer">
-                <label>
-                    <input  id="message-input" type="text" value="" placeholder="Aa" />
-                </label>
-            </div>
-        </section>
+        <div class="left-bar">
+            <section>
+                <div id="user-list" class="contacts">
+                </div>
+            </section>
+        </div>
+        <div class="right-bar">
+            <section>
+                <div class="chat-header">
+                    <p>Siia tuleb kasutajanimi</p>
+                    <button id="logout">Log out</button>
+                </div>
+
+                <div id="chat-messages" class="chat-body">
+
+                </div>
+                <div class="chat-footer">
+                    <label>
+                        <input id="message-input" type="text" value="" placeholder="Aa" />
+                    </label>
+                </div>
+
+            </section>
+        </div>
     </main>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/public/js/app.js"></script>
 </body>
+
 </html>

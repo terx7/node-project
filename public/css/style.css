@@ -1,4 +1,15 @@
 
+html {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #324E8C;
+}
+body {
+    background-color: #F7F6F1;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
 .chat {
     display: flex;
     flex-direction: row;
@@ -13,9 +24,136 @@
     min-height: 20vh;
     border: 1px solid black;
     padding: 0.5rem;
+    background-color: #ffffff;
 }
 
-/* NO NEED THIS CSS - just for custom scrollbar which can also be configured in tailwind.config.js*/
+
+
+.left-bar {
+    width: 30%;
+    border-right: #324E8C 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right-bar {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+
+}
+.logo {
+    margin: 50px;
+}
+
+.quote {
+    flex-grow: ;
+    margin: 0 50px;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 31px;
+}
+
+.left-bottom {
+    display: flex;
+    margin:  50px;
+    justify-content: flex-end;
+    align-items:center;
+
+}
+
+.left-bottom a {
+    text-decoration: none;
+    color:#324E8C ;
+}
+
+
+.centerform {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+.artist {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 0.85em;
+
+}
+
+.input-box {
+    border-radius: 20px;
+    border: #324E8C 1px solid;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+.input-label {
+    display: block;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.265em;
+    text-transform: uppercase;
+}
+
+.title {
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-size: 36px;
+    line-height: 54px;
+    text-align: center;
+    letter-spacing: 0.27em;
+    text-transform: uppercase;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background: #324E8C;
+    color: #F7F6F1;
+    padding: 20px;
+    border: 0;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.27em;
+}
+.read-chat-box {
+    border-radius: 0px 20px 20px 20px;
+    border: #324E8C 1px solid;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 40px;
+}
+
+.read-own-chat-box {
+    border-radius: 20px 20px 0px 20px;
+    border: 2px solid;
+    background-color: #324E8C;
+    color: #F7F6F1;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 40px;
+}
+
+.write-chat-box {
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 10px;
+    margin: 10px;
+    width: 500px;
+    height: 40px;
+}
+
+
+
+
+/* * NO NEED THIS CSS - just for custom scrollbar which can also be configured in tailwind.config.js*/ */
 
 ::-webkit-scrollbar {
     width: 2px;

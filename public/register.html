@@ -5,37 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,500&display=swap"
+        rel="stylesheet">
     <title>Register</title>
 </head>
 
 <body>
-    <div>
-        <h2 class="font-semibold text-white text-2xl">
-            Register
-        </h2>
-        <span id="register-error"></span>
-        <form>
+    <div class="left-bar">
+        <div class="logo"><img src="/public/img/logo.svg" alt="Chat logo"></div>
+        <div class="quote">
+            <div>I am more of an introvert person who is a little shy to get into random chat. I would rather
+                observe people silently.</div>
+            <div class="artist">Daisy Shah</div>
+        </div>
+        <div class="left-bottom"><a href="/public/login.html" id="register-button"> <span>Login </span> <img
+                    src="/public/img/entrance.svg"></a></div>
+    </div>
+    <div class="right-bar">
+
+        <form class="centerform">
+            <h1 class="title">
+                Register
+            </h1>
+            <span id="register-error"></span>
             <div>
-                <label for="username">Username</label>
-                <input id="username" name="username" type="text">
+                <label class="input-label" for="username">Username</label>
+                <input class="input-box" id="username" name="username" type="text">
                 <span id="username-error"></span>
             </div>
             <div>
-                <label for="password">Password</label>
-                <input id="password" type="password" >
+                <label class="input-label" for="password">Password</label>
+                <input class="input-box" id="password" type="password">
                 <span id="password-error"></span>
             </div>
             <div>
-                <label for="password-again">Password Confirm</label>
-                <input id="password-again" type="password" >
+                <label class="input-label" for="password-again">Password Confirm</label>
+                <input class="input-box" id="password-again" type="password">
                 <span id="password-again-error"></span>
             </div>
             <div>
-                <button type="button" id="register-button">Register</button>
+                <button class="button" type="button" id="register-button">Register</button>
             </div>
         </form>
     </div>
     <script src="/public/js/register-validate.js"></script>
     <script src="/public/js/register.js"></script>
 </body>
+
 </html>
