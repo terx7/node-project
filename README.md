@@ -49,6 +49,7 @@ Rakendus: </br>
 2. Hirmude ületamine.
 3. Github, VS Code
 
+--------------------------------
 
 **Stack**
 - Node JS / JS / npm
