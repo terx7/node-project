@@ -47,7 +47,7 @@ Rakendus: </br>
 **Lelet:**
 1. Ei. 
 2. Hirmude ületamine.
-3. Github, VS Code
+3. Github, VS Code, CSS.
 
 --------------------------------
 
