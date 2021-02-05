@@ -5,30 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,500&display=swap"
+        rel="stylesheet">
     <title>Login</title>
 </head>
 
 <body>
-    <div>
-        <form x-data="{password: '',password_confirm: ''}">
+    <div class="left-bar">
+        <div class="logo"><img src="/public/img/logo.svg" alt="Chat logo"></div>
+        <div class="quote">
+            <div>I am more of an introvert person who is a little shy to get into random chat. I would rather
+                observe people silently.</div>
+            <div class="artist">Daisy Shah</div>
+        </div>
+        <div class="left-bottom"><a href="/public/register.html" id="register-button"> <span>Register </span> <img
+                    src="/public/img/person-add.svg"></a></div>
+    </div>
+    <div class="right-bar">
+        <form class="centerform" x-data="{password: '',password_confirm: ''}">
+            <h1 class="title">login</h1>
             <div>
-                <label  for="username">Username</label>
+                <label class="input-label" for="username">Username</label>
                 <input class="input-box" placeholder="" id="username" type="text" />
             </div>
-            
+
             <div>
-                <label for="password">Password</label>
+                <label class="input-label" for="password">Password</label>
                 <input class="input-box" placeholder="" id="password" type="password" x-model="password" />
             </div>
-            
+
             <div>
-                <button type="button" id="login-button">Login</button>
+                <button class="button" type="button" id="login-button"><img src="/public/img/triangle.svg"
+                        alt=""></button>
             </div>
-            <div>
-                <a href="/public/register.html" id="register-button">Register</a>
-            </div>
+
         </form>
     </div>
     <script src="/public/js/login.js"></script>
 </body>
+
 </html>

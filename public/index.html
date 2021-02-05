@@ -5,35 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,500&display=swap"
+        rel="stylesheet">
     <title>Node project</title>
 </head>
 
 <body>
     <main class="chat">
-        <section class="socket-listing">
-            <div id="room-wrapper">
-                <h4>Jututoad</h4>
-                <div class="room-list"></div>
+        <div class="left-bar">
+            <div class="logo"><img src="/public/img/logo.svg" alt="Chat logo"></div>
+            <div class="quote">
+                <h4>Kasutajad</h4>
+                <section>
+                    <div id="user-list" class="contacts">
+                    </div>
+                </section>
             </div>
-            <div id="user-wrapper" class="contacts">
-                <h4>Kasutajad online</h4>
-                <div class="user-list"></div>
-            </div>
-        </section>
-        <section class="chat-container"> 
-            <div class="chat-header">
-                <p>Siia tuleb kasutajanimi</p>
-                <button id="logout">Log out</button>
-            </div>
-            <div id="chat-messages" class="chat-body">
-            
-            </div>
-            <div class="chat-footer">
-                <label>
-                    <input  id="message-input" type="text" value="" placeholder="Aa" />
-                </label>
-            </div>
-        </section>
+            <div class="left-bottom"><button id="logout">Log out</button></div>
+
+        </div>
+        <div class="right-bar">
+            <section class="chat-conteiner">
+                <div id="chat-messages" class="chat-body">
+                </div>
+                <div class="chat-footer">
+                    <label>
+                        <input class="write-chat-box" id="message-input" type="text" value="" placeholder="Aa" />
+                    </label>
+                </div>
+
+            </section>
+        </div>
     </main>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/public/js/app.js"></script>
