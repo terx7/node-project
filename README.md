@@ -2,7 +2,7 @@
 
 Kuressaare Ametikooli tarkvaraarenduse õpilaste projektipäevade raames 3.-5.veebruar 2021.a valminud töö. 
 
-**Ülesande kirjeldus: **
+**Ülesande kirjeldus:**
 etteantud Node.js ja Socket.io koodi peale luua edasiarendatud klient-server rakendus. 
 
 ## Tiim: IO2
