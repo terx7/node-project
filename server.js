@@ -5,12 +5,18 @@ const http = require('http').createServer(app);
 const socketio = require('socket.io');
 const io = socketio(http)
 
+const bcrypt = require('bcrypt')
+const saltRounds = 10;
+const salt = bcrypt.genSalt(saltRounds);
+
+
 const session = require('express-session');
 const redis = require('redis');
 const connectRedis = require('connect-redis');
 
 var bodyParser = require('body-parser');
 const path = require('path');
+const { privateEncrypt } = require('crypto');
 
 const port = 8000;
 const userList = {};
@@ -78,7 +84,7 @@ app.post("/login", (req, res) => {
         let isSuccess = false;
 
         if (req.body.username in result) {
-            if (result[req.body.username] == req.body.password) {
+            if (result[req.body.username] == bcrypt.compare(req.body.password)) {
                 isSuccess = true;
             }
         }
@@ -97,7 +103,10 @@ app.post("/login", (req, res) => {
 
 app.post("/register", (req, res) => {
     console.log(req.body.username, req.body.password, 'register');
-
+    const hashPassword = bcrypt.hash(req.body.password, salt, (err, encrypt) =>{
+        req.body.password = encrypt
+    } )
+    console.log(hashPassword)
     redisClient.hgetall('users', (err, result) => {
         let isSuccess = false;
         if (result) {
@@ -110,7 +119,7 @@ app.post("/register", (req, res) => {
 
         }
         if (isSuccess) {
-            redisClient.hset('users', req.body.username, req.body.password);
+            redisClient.hset('users', req.body.username, hashPassword);
             res.json({ response: 'success' });
         } else {
             res.json({ response: 'errorUserExists' });
