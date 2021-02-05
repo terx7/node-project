@@ -4,8 +4,8 @@ socket.emit('createRoom');
 
 const messageInput = document.getElementById('message-input');
 const chatMessages = document.getElementById('chat-messages');
-const userList = document.querySelector('.user-list');
-const roomList = document.querySelector('.room-list');
+const userList = document.querySelector('#user-list');
+const roomList = document.querySelector('#room-list');
 
 messageInput.focus();
 
@@ -16,11 +16,7 @@ messageInput.addEventListener('keydown', event => {
     }
 });
 
-userList.addEventListener('click', event => {
-    console.log(event.target.innerText)
-    const user = event.target.innerText
-    socket.emit('createRoom', user);
-})
+
 
 // socket.on('connection', userId => {
 //     const item = document.createElement('li');
@@ -59,6 +55,12 @@ socket.on('chat_message', msgObj => {
     `
     chatMessages.appendChild(item);
 });
+
+userList.addEventListener('click', event => {
+    console.log(event.target.innerText)
+    const user = event.target.innerText
+    socket.emit('createRoom', user);
+})
 
 document.getElementById('logout').onclick = function () {
     console.log('logout');
