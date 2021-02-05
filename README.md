@@ -31,8 +31,8 @@ Rakendus: </br>
 3.
 
 **Erki:**
-1.Ei
-2.Meeskonnatöö
+1.Ei </br>
+2.Meeskonnatöö </br>
 3.Socket.io ja javascript
 
 **Gen:**
