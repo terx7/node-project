@@ -30,7 +30,7 @@ Rakendus: </br>
 2.
 3.
 
-**Erki:**
+**Erki:** </br>
 1.Ei </br>
 2.Meeskonnatöö </br>
 3.Socket.io ja javascript
