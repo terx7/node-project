@@ -14,24 +14,24 @@
 <body>
     <main class="chat">
         <div class="left-bar">
-            <section>
-                <div id="user-list" class="contacts">
-                </div>
-            </section>
+            <div class="logo"><img src="/public/img/logo.svg" alt="Chat logo"></div>
+            <div class="quote">
+                <h4>Kasutajad</h4>
+                <section>
+                    <div id="user-list" class="contacts">
+                    </div>
+                </section>
+            </div>
+            <div class="left-bottom"><button id="logout">Log out</button></div>
+
         </div>
         <div class="right-bar">
-            <section>
-                <div class="chat-header">
-                    <p>Siia tuleb kasutajanimi</p>
-                    <button id="logout">Log out</button>
-                </div>
-
+            <section class="chat-conteiner">
                 <div id="chat-messages" class="chat-body">
-
                 </div>
                 <div class="chat-footer">
                     <label>
-                        <input id="message-input" type="text" value="" placeholder="Aa" />
+                        <input class="write-chat-box" id="message-input" type="text" value="" placeholder="Aa" />
                     </label>
                 </div>
 

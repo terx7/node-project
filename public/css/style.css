@@ -13,6 +13,7 @@ body {
 .chat {
     display: flex;
     flex-direction: row;
+    width: 100vw;
 }
 
 .chat > section {
@@ -21,10 +22,17 @@ body {
 }
 
 .chat-body {
-    min-height: 20vh;
-    border: 1px solid black;
+    min-height: 90vh;
+    width: 90%;
     padding: 0.5rem;
-    background-color: #ffffff;
+    display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+
+
+}
+.chat-conteiner {
+    width: 90%;
 }
 
 
@@ -143,16 +151,20 @@ body {
 
 .write-chat-box {
     border-radius: 20px;
-    border: 2px solid;
-    padding: 10px;
-    margin: 10px;
-    width: 500px;
-    height: 40px;
+    border: #324E8C 1px solid;
+    padding: 20px;
+    width: 90%;
+    height: 20px;
+    color: #324E8C;
+    font-size: 1.2em;
 }
 
+h4 {
+    font-weight: 300;
+    letter-spacing: 0.265em;
+    text-transform: uppercase;
 
-
-
+}
 /* * NO NEED THIS CSS - just for custom scrollbar which can also be configured in tailwind.config.js*/ */
 
 ::-webkit-scrollbar {
