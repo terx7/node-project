@@ -1,7 +1,9 @@
 # Projekt
 
 Kuressaare Ametikooli tarkvaraarenduse õpilaste projektipäevade raames 3.-5.veebruar 2021.a valminud töö. 
-Ülesande kirjeldus: etteantud Node.js ja Socket.io koodi peale luua edasiarendatud klient-server rakendus. 
+
+**Ülesande kirjeldus:** 
+Etteantud Node.js ja Socket.io koodi peale luua edasiarendatud klient-server rakendus. 
 
 ## Tiim: IO2
 
@@ -27,22 +29,26 @@ Rakendus: </br>
 1.
 2.
 3.
+
 **Erki:**
 1.
 2.
 3.
+
 **Gen:**
 1.
 2.
 3.
+
 **Karl:**
 1.
 2.
 3.
+
 **Mare:**
-1.
-2.
-3.
+1. Ei.
+2. Meeskonnatöö.
+3. Javascript, guugeldamine.
 
 **Lelet:**
 1. Ei. 
