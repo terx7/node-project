@@ -1,3 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.main {
+    width: 100vw;
+    height: 100vh;
+}
+
+.socket-listing {
+    width: 30%;
+    height: 100vh;
+    background-color: lightgoldenrodyellow;
+    padding: 1rem;
+}
+
+
+html {
+    background-color:  #F7F6F1;
+    color: #324E8C;
+}
+
+
+.chat-container {
+    width: 70%;
+    height: 100vh;
+}
 
 html {
     font-family: 'Poppins', sans-serif;
@@ -14,11 +44,6 @@ body {
     display: flex;
     flex-direction: row;
     width: 100vw;
-}
-
-.chat > section {
-    flex: 1;
-    padding: 1vmin;
 }
 
 .chat-body {
@@ -70,6 +95,7 @@ body {
     align-items:center;
 
 }
+
 
 .left-bottom a {
     text-decoration: none;

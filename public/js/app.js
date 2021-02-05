@@ -1,8 +1,11 @@
 var socket = io();
 
+socket.emit('createRoom');
+
 const messageInput = document.getElementById('message-input');
 const chatMessages = document.getElementById('chat-messages');
-const userList = document.getElementById('user-list');
+const userList = document.querySelector('.user-list');
+const roomList = document.querySelector('.room-list');
 
 messageInput.focus();
 
@@ -13,36 +16,51 @@ messageInput.addEventListener('keydown', event => {
     }
 });
 
-socket.on('connection', userId => {
-    const item = document.createElement('li');
-    item.textContent = 'User ' + userId + ' connected';
-    chatMessages.appendChild(item);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-});
+userList.addEventListener('click', event => {
+    console.log(event.target.innerText)
+    const user = event.target.innerText
+    socket.emit('createRoom', user);
+})
+
+// socket.on('connection', userId => {
+//     const item = document.createElement('li');
+//     item.textContent = 'User ' + userId + ' connected';
+//     chatMessages.appendChild(item);
+//     chatMessages.scrollTop = chatMessages.scrollHeight;
+// });
 
 socket.on('updateUserList', userListObj => {
     userList.innerHTML = "";
     for (const userName in userListObj) {
         userList.innerHTML += `
         <div>
-            <p>${ userName }</p>
+            <p>${userName}</p>
         </div>`;
     }
 });
 
+
+
+socket.on('updateRoomList', roomListObj => {
+    roomList.innerHTML = "";
+    roomList.innerHTML = `
+            <div>
+                <p>${roomListObj}</p>
+            </div>`;
+});
+
 socket.on('chat_message', msgObj => {
-    console.log(msgObj)
     const item = document.createElement('div');
     item.innerHTML = `
-        <div>
-            <p><b>${ msgObj.user }</b></p>
-            <p>${ msgObj.message }</p>
+        <div class="message">
+            <p><b>${msgObj.user} : </b></p>
+            <p>${msgObj.message}</p>
         </div>
     `
     chatMessages.appendChild(item);
 });
 
-document.getElementById('logout').onclick = function() {
+document.getElementById('logout').onclick = function () {
     console.log('logout');
     location.href = '/logout';
 };
